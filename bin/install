@@ -30,6 +30,7 @@ install_docker() {
 
   mkdir -p "${install_path}/bin"
 
+  local cmd="curl -o ${archive_path} -L"
   eval ${cmd} -o ${archive_path} https://download.docker.com/${platform}/static/stable/x86_64/docker-${version}.tgz
   tar xzf ${archive_path} --strip-component=1 -C "${tmp_dir}"
   cp ${tmp_dir}/docker ${install_path}/bin/docker
